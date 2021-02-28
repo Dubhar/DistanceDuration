@@ -11,6 +11,9 @@ function loadAndEnhanceLocations(string $filename): array
       $locations[] = new Location($data[0], $data[1], $data[2]);
     }
   }
+  if (empty($locations)) {
+    throw new Exception('File ' . $filename . ' contains no locations!');
+  }
   return $locations;
 }
 
@@ -37,6 +40,9 @@ function getCoordinates(string $name): array
 
   // parse result
   $response = json_decode($jsonResponse, true);
+  if (isset($response['error'])) {
+    throw new Exception($response['error']);
+  }
   $latitude = $response['features'][0]['geometry']['coordinates'][1];
   $longitude = $response['features'][0]['geometry']['coordinates'][0];
 
@@ -80,6 +86,9 @@ function getDistanceAndDuration(array $locations, array $destinations): TravelMa
 
   // parse response
   $response = json_decode($response, true);
+  if (isset($response['error'])) {
+    throw new Exception($response['error']);
+  }
   return new TravelMatrix($locations, $destinations, $response['distances'], $response['durations']);
 }
 

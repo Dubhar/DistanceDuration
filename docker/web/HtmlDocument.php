@@ -7,12 +7,14 @@ class HtmlDocument
   protected array $css;
   protected array $js;
   protected TravelMatrix $matrix;
+  protected string $error;
 
   public function __construct(string $title = "NoTitle")
   {
     $this->title = $title;
     $this->css = array();
     $this->js = array();
+    $this->error = '';
   }
 
   public function addCss(string $cssPath)
@@ -28,6 +30,11 @@ class HtmlDocument
   public function addTravelMatrix(TravelMatrix $matrix)
   {
     $this->matrix = $matrix;
+  }
+
+  public function addError(string $error)
+  {
+    $this->error .= $error . '<br/>';
   }
 
   private function matrixAsTable(): string
@@ -58,16 +65,21 @@ class HtmlDocument
       $html .= '<link rel="stylesheet" href="' . $cssFile . '">';
     }
     $html .= '</head><body>';
-    $html .= $this->matrixAsTable();
-    $html .= '<br/><div id="control">';
-    $html .= '<select id="dropdown"><option value="distance">Distance[km]</option><option value="duration" selected>Duration[min]</option></select>';
-    $html .= '<label for="threshold">Limit:</label>';
-    $html .= '<input type="number" id="threshold" min="0" max="999" value="45">';
-    $html .= '<label for="divergence">Variance:</label>';
-    $html .= '<input type="number" id="divergence" min="0" max="99" value="15">';
-    $html .= '</div>';
-    foreach ($this->js as $jsFile) {
-      $html .= '<script src="' . $jsFile . '"></script>';
+    if (!empty($this->error)) {
+      $html .= '<div id="error">Error: ' . $this->error . '</div>';
+    }
+    if (isset($this->matrix)) {
+      $html .= $this->matrixAsTable();
+      $html .= '<br/><div id="control">';
+      $html .= '<select id="dropdown"><option value="distance">Distance[km]</option><option value="duration" selected>Duration[min]</option></select>';
+      $html .= '<label for="threshold">Limit:</label>';
+      $html .= '<input type="number" id="threshold" min="0" max="999" value="45">';
+      $html .= '<label for="divergence">Variance:</label>';
+      $html .= '<input type="number" id="divergence" min="0" max="99" value="15">';
+      $html .= '</div>';
+      foreach ($this->js as $jsFile) {
+        $html .= '<script src="' . $jsFile . '"></script>';
+      }
     }
     $html .= '</body></html>';
 

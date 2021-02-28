@@ -21,3 +21,18 @@ table {
   text-align: center;
   padding: .7em;
 }
+
+#error {
+  color: crimson;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+
+select {
+  margin-right: 1em;
+}
+
+input {
+  margin-right: 1em;
+}
