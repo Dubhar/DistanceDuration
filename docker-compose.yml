@@ -9,5 +9,5 @@ services:
     volumes:
       - ./data:/var/www/html/data
     environment:
-      - API_KEY="5b3ce3591151110001cf624812a327568fd14348ff63f36c26c7efa0" # Replace with valid API Key from OpenRouteService
+      - API_KEY=5b3ce3591151110001cf624812a327568fd14348ff63f36c26c7efa0 # Replace with valid API Key from OpenRouteService
     restart: unless-stopped
