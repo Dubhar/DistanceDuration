@@ -24,6 +24,6 @@ jobs:
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: true
           tags: |
-            dubhar/distanceduration:latest
-            dubhar/distanceduration:${{github.ref_name}}
+            ${{ secrets.DOCKERHUB_USER }}/distanceduration:latest
+            ${{ secrets.DOCKERHUB_USER }}/distanceduration:${{github.ref_name}}
 
