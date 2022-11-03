@@ -1,4 +1,3 @@
-FROM php:apache
-RUN apt-get update && apt-get -y install sqlite3
+FROM php:8.2.0RC3-apache
 COPY ./web/* /var/www/html/
 
