@@ -6,7 +6,7 @@ require_once 'HtmlDocument.php';
 // prepare html
 $html = new HtmlDocument("DistanceDuration");
 $html->addCss("./style.css");
-$html->addJs("./jquery-3.5.1.min.js");
+$html->addJs("./jquery-3.6.1.min.js");
 $html->addJs("./interactive.js");
 
 try {
