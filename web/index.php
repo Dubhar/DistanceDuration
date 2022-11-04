@@ -14,7 +14,7 @@ try {
   $locations = loadAndEnhanceLocations($config['locations']);
   $destinations = loadAndEnhanceLocations($config['destinations']);
 
-  // save enhanced locations so we dont have to resolve "name -> coordinates" again
+  // save enhanced locations, so we don't have to resolve "name -> coordinates" again
   save($locations, $config['locations']);
   save($destinations, $config['destinations']);
 

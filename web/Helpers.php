@@ -2,6 +2,9 @@
 require_once 'Config.php';
 require_once 'Location.php';
 
+/**
+ * @throws Exception
+ */
 function loadAndEnhanceLocations(string $filename): array
 {
   $locations = array();
@@ -23,6 +26,9 @@ function save(array $locations, string $filename)
   file_put_contents($filename, $csv);
 }
 
+/**
+ * @throws Exception
+ */
 function getCoordinates(string $name): array
 {
   // construct url + params
@@ -49,6 +55,9 @@ function getCoordinates(string $name): array
   return array($latitude, $longitude);
 }
 
+/**
+ * @throws Exception
+ */
 function getDistanceAndDuration(array $locations, array $destinations): TravelMatrix
 {
   // construct params

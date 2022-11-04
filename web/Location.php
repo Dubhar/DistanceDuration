@@ -8,6 +8,9 @@ class Location
   protected float $latitude;
   protected float $longitude;
 
+  /**
+   * @throws Exception
+   */
   public function __construct(string $name, string $latitude = "", string $longitude = "")
   {
     $this->name = $name;
