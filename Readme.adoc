@@ -1,5 +1,11 @@
 = Distance and Duration
 
+image:https://img.shields.io/docker/pulls/dubhar/distanceduration?logo=docker&style=flat[link="https://hub.docker.com/r/dubhar/distanceduration"]
+image:https://img.shields.io/docker/v/dubhar/distanceduration?sort=semver&style=flat[link="https://hub.docker.com/r/dubhar/distanceduration"]
+image:https://img.shields.io/docker/image-size/dubhar/distanceduration/latest?label=image%20size%20%28latest%20%22docker%22%29&logo=docker[size]
+image:https://img.shields.io/github/license/dubhar/distanceduration[link="https://github.com/dubhar/distanceduration/blob/main/LICENSE"]
+image:https://snyk.io/test/github/dubhar/distanceduration/badge.svg[Vulnerabilities]
+
 This is a webservice that provides an easy way to compare distances and durations (by car) between user defined locations.
 
 == Example
