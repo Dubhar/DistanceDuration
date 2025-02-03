@@ -1,3 +1,3 @@
-FROM php:8.2.20-apache
+FROM php:8.4.4RC2-apache
 COPY ./web/* /var/www/html/
 
