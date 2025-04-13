@@ -9,7 +9,7 @@ function loadAndEnhanceLocations(string $filename): array
 {
   $locations = array();
   if (($handle = fopen($filename, 'r')) !== FALSE) {
-    while (($data = fgetcsv($handle, 1000, $GLOBALS['config']['delimiter'])) !== FALSE) {
+    while (($data = fgetcsv($handle, 1000, $GLOBALS['config']['delimiter'], '"', "\\")) !== FALSE) {
       if (count($data) != 3) exit - 1;
       $locations[] = new Location($data[0], $data[1], $data[2]);
     }
