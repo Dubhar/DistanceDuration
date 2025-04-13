@@ -28,6 +28,12 @@ This webservice will present you the shortest path between your hotels and the s
 
 image::img/example.png[]
 
+== Setup
+
+. Clone repository
+. Modify `docker-compose.yml` so that API_KEY it is a valid OpenRouteService API key
+. `docker compose up -d`
+
 == Technical Aspects
 
 * You can specify arbitrary location names if you provide coordinates
@@ -36,3 +42,4 @@ image::img/example.png[]
 ** This implies that the location and destination files must be writable by the container user
 * OpenRouteService is also used to figure out the distances and durations between the individual locations
 ** So you must specify a personal API Key otherwise the webservice can't access OpenRouteService
+
