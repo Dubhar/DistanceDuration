@@ -1,5 +1,3 @@
-version: "3.7"
-
 services:
   distdur:
     image: dubhar/distanceduration:latest
