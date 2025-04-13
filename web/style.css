@@ -1,25 +1,94 @@
 :root {
-  --aboveLimitColor: lightcoral;
-  --belowLimitColor: aquamarine;
-  --borderlineColor: moccasin;
+  --aboveLimitColor: #f87171;
+  --belowLimitColor: #6ee7b7;
+  --borderlineColor: #fde68a;
+
+  --primaryFont: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --textColor: #333;
+  --headerBg: #f8f9fa;
+  --borderColor: #dee2e6;
+  --tableHover: #f1f3f5;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: var(--primaryFont);
+  background-color: #f5f7fa;
+  color: var(--textColor);
+  margin: 0;
+  padding: 1em;
+}
+
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1em 1em;
 }
 
 table {
   border-collapse: collapse;
-  margin: 25px auto;
-  font-size: 0.9em;
-  font-family: sans-serif;
-  min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin: 2em auto;
+  font-size: 0.95em;
+  background-color: white;
+  min-width: 600px;
+  border-radius: 0.75em;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 0.85em 1em;
+  text-align: center;
+  border: 1px solid var(--borderColor);
+}
+
+th {
+  background-color: var(--headerBg);
+  font-weight: bold;
+}
+
+tr:hover td {
+  background-color: var(--tableHover);
+}
+
+.distance, .duration {
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 #control {
-  text-align: center;
-  padding: .7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+
+  padding: 1em 2em;
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 0.75em;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  max-width: fit-content;
+}
+
+select, input {
+  font-size: 1em;
+  padding: 0.5em 0.75em;
+  margin-right: 1em;
+  border: 1px solid var(--borderColor);
+  border-radius: 0.5em;
+  transition: border-color 0.3s;
+}
+
+select:focus, input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+label {
+  font-weight: 600;
+  margin-right: 0.5em;
 }
 
 #error {
@@ -27,12 +96,6 @@ table {
   text-align: center;
   font-weight: bold;
   font-size: large;
+  padding: 1em;
 }
 
-select {
-  margin-right: 1em;
-}
-
-input {
-  margin-right: 1em;
-}

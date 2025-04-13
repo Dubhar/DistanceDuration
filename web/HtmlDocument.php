@@ -69,7 +69,6 @@ class HtmlDocument
       $html .= '<div id="error">Error: ' . $this->error . '</div>';
     }
     if (isset($this->matrix)) {
-      $html .= $this->matrixAsTable();
       $html .= '<br/><div id="control">';
       $html .= '<select id="dropdown"><option value="distance">Distance[km]</option><option value="duration" selected>Duration[min]</option></select>';
       $html .= '<label for="threshold">Limit:</label>';
@@ -77,6 +76,7 @@ class HtmlDocument
       $html .= '<label for="divergence">Variance:</label>';
       $html .= '<input type="number" id="divergence" min="0" max="99" value="15">';
       $html .= '</div>';
+      $html .= '<div class="table-wrapper">'.$this->matrixAsTable().'</div>';
       foreach ($this->js as $jsFile) {
         $html .= '<script src="' . $jsFile . '"></script>';
       }
